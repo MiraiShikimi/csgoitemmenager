@@ -5,8 +5,15 @@
 
 body{
     background: #edf1f5;
-    margin-top:20px;
+    margin-top:  64px;
 }
+
+.mainBody{
+    background: #edf1f5;
+    margin-top:  64px;
+
+}
+
 .card {
     position: relative;
     display: flex;

@@ -3,15 +3,19 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { csgoItem } from '../interface/csgoItem';
 import { CustomResponse } from '../interface/custom-response';
+import { HttpHeaders } from '@angular/common/http';
+import { AuthService } from '../auth/shared/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CsgoitemService {
 
+  jwtToken: string;
   private apiServerUrl = 'http://localhost:8080/csgoitem';
+  
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public authService: AuthService) { }
 
 
   public getCSGOItems(): Observable<CustomResponse>{
@@ -31,6 +35,10 @@ export class CsgoitemService {
   }
 
   public refreshCSGOItems(csgoItemId: number): Observable<CustomResponse>{
-    return this.http.get<CustomResponse>(`${this.apiServerUrl}/refresh/${Number}`);
+    return this.http.get<CustomResponse>(`${this.apiServerUrl}/updateprice/${Number}`);
+  }
+
+  public refreshAllCSGOItems(): Observable<CustomResponse>{
+    return this.http.get<CustomResponse>(`${this.apiServerUrl}/updateprice/all`);
   }
 }
