@@ -5,6 +5,7 @@ import { csgoItem } from '../interface/csgoItem';
 import { CustomResponse } from '../interface/custom-response';
 import { HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth/shared/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ import { AuthService } from '../auth/shared/auth.service';
 export class CsgoitemService {
 
   jwtToken: string;
-  private apiServerUrl = 'http://localhost:8080/csgoitem';
+  baseUrl = environment.baseUrl
+  private apiServerUrl = this.baseUrl + 'csgoitem';
   
 
   constructor(private http: HttpClient, public authService: AuthService) { }

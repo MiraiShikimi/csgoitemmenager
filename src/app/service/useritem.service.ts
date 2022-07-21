@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth/shared/auth.service';
 import { CustomResponse } from '../interface/custom-response';
 import { userItem } from '../interface/useritem';
@@ -10,7 +11,8 @@ import { userItem } from '../interface/useritem';
 })
 export class UseritemService {
   jwtToken: string;
-  private apiServerUrl = 'http://localhost:8080/useritem';
+  baseUrl = environment.baseUrl;
+  private apiServerUrl =  this.baseUrl + 'useritem';
   
 
   constructor(private http: HttpClient, public authService: AuthService) { }

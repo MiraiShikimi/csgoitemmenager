@@ -7,13 +7,16 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { LocalStorageService } from 'ngx-webstorage';
 import { LoginResponse } from '../login/login-response.payload';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiServerUrl = 'http://localhost:8080/api/auth';
+  baseUrl = environment.baseUrl
+
+  private apiServerUrl =  this.baseUrl + 'api/auth';
 
   refreshTokenPayload = {
     refreshToken: this.getRefreshToken(),
@@ -29,7 +32,7 @@ export class AuthService {
   }
 
   login(loginRequestPayload: LoginRequestPayload): Observable<boolean>{
-    return this.httpClient.post<LoginResponse>('http://localhost:8080/api/auth/login',
+    return this.httpClient.post<LoginResponse>( this.apiServerUrl + '/login',
     loginRequestPayload).pipe(map(data => { 
       this.localStorage.store('roles',data.roles)
       this.localStorage.store('authenticationToken', data.authenticationToken);
@@ -56,7 +59,7 @@ export class AuthService {
   refreshToken(){
 
     const headers= new HttpHeaders().set('Authorization', this.getRefreshToken());
-    return this.httpClient.post<LoginResponse>('http://localhost:8080/api/auth/refresh/token',this.refreshTokenPayload,{'headers': headers})
+    return this.httpClient.post<LoginResponse>( this.apiServerUrl + '/refresh/token',this.refreshTokenPayload,{'headers': headers})
       .pipe(catchError(error => {
         console.log("okok")
         if (error instanceof HttpErrorResponse

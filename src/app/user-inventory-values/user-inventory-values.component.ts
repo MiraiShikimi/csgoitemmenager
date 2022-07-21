@@ -29,7 +29,6 @@ export class UserInventoryValuesComponent implements OnInit {
 
 
    public  chartSerup(): void{
-    console.log("HAHAHAAAAAAAAAAAAAAAAAAAAAAA")
     const values = [];
     const dates = [];
     this.userInventory.forEach(element => {

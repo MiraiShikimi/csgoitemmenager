@@ -3,13 +3,17 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "heroku-postbuild": "ng build --prod",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "^14.0.1",
+    "@angular/compiler-cli": "^14.0.1",
+    "typescript": "~4.6.2",
     "@angular/animations": "^14.0.1",
     "@angular/common": "^14.0.1",
     "@angular/compiler": "^14.0.1",
@@ -48,5 +52,9 @@
     "ngx-toastr": "12.0.1",
     "ngx-webstorage": "5.0.0",
     "typescript": "~4.6.2"
+  },
+  "engines": {
+    "node": "16.15.0",
+    "npm": "13.3.7"
   }
 }
