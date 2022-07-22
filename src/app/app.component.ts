@@ -125,7 +125,7 @@ export class AppComponent implements OnInit{
 
   public onRefreshPrices(): void{
     console.log("refreshing")
-    this.csogoItemService.refreshAllCSGOItems().subscribe (
+    this.csogoItemService.refreshAllCSGOItems(null).subscribe (
       (response: CustomResponse) => {
         console.log(response);
         this.getCSGOItems();
