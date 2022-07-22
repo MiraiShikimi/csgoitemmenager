@@ -16,7 +16,7 @@
     </div >
 <div class="card-group">
   <div *ngFor="let csgoItem of csgoItems" class="flex-wrap">
-    <img src="{{csgoItem?.imageURL}}" class="card-img-top" alt="..." style="width: 200px;height:128px;">
+    <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{csgoItem?.imageURL}}" class="card-img-top" alt="..." style="width: 200px;height:128px;">
     <div class="card-body">
       <h5 class="card-title">{{csgoItem?.displayName}}</h5>
       <p class="card-text">{{csgoItem?.lowestPrice}}</p>
@@ -141,7 +141,7 @@
         </div>
         <div class="card-group">
             <div *ngFor="let csgoItem of csgoItems" class="flex-wrap">
-              <img src="{{csgoItem?.imageURL}}" class="card-img-top" alt="..." style="width: 200px;height:128px;">
+              <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{csgoItem?.imageURL}}" class="card-img-top" alt="..." style="width: 200px;height:128px;">
               <div class="card-body">
                 <h5 class="card-title">{{csgoItem?.displayName}}</h5>
                 <button type="button" (click)="onOpenModal(csgoItem, 'addUserItem')" id="addUserItemButton" class="btn btn-primary">Add Item to user</button>

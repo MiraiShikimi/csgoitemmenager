@@ -12,7 +12,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let userItem of userItems">
-        <td><img src="{{userItem?.csgoItem.imageURL}}" alt="..." width="48"> </td>
+        <td><img src="https://steamcommunity-a.akamaihd.net/economy/image/{{userItem?.csgoItem.imageURL}}" alt="..." width="48"> </td>
         <td>{{userItem.csgoItem.displayName}}</td>
         <td>{{userItem.quantity}}</td>
         <td>{{userItem.csgoItem.lowestPrice}} €</td>
