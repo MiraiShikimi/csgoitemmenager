@@ -5,7 +5,7 @@ import { LoginRequestPayload } from '../login/loginRequest.Payload';
 import { SignupRequestPayload } from '../signup/singup-request.payload';
 import { catchError, map, tap } from 'rxjs/operators';
 import { LocalStorageService } from 'ngx-webstorage';
-import { LoginResponse } from '../login/login-response.payload';
+import { LoginResponse } from '../login/loginresponse.payload';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
