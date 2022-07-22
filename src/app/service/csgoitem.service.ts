@@ -40,7 +40,7 @@ export class CsgoitemService {
     return this.http.get<CustomResponse>(`${this.apiServerUrl}/updateprice/${Number}`);
   }
 
-  public refreshAllCSGOItems(): Observable<CustomResponse>{
-    return this.http.get<CustomResponse>(`${this.apiServerUrl}/updateprice/all`);
+  public refreshAllCSGOItems(csgoItem: csgoItem): Observable<CustomResponse>{
+    return this.http.put<CustomResponse>(`${this.apiServerUrl}/updateprice/all`, csgoItem);
   }
 }
