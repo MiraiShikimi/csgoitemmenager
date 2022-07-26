@@ -34,7 +34,11 @@ export class UserInventoryValuesComponent implements OnInit {
     const dates = [];
     this.userInventory.forEach(element => {
         values.push(element.inventoryValue)
-        values2.push(element.inventoryValueTaxed)
+        
+          values2.push(element.inventoryValueTaxed)
+        
+        
+        
         dates.push(element.dateOfValue)
       
     });
@@ -46,7 +50,7 @@ export class UserInventoryValuesComponent implements OnInit {
           datasets: [{
             label: 'inventory values taxed',
             data: values2,
-            backgroundColor: [ 'rgba( 100, 100, 100, 1)'
+            backgroundColor: [ 'rgba( 3, 252, 207, 1)'
             ],
             borderColor: [
                 'rgba(100, 100, 100, 1)'
@@ -57,7 +61,7 @@ export class UserInventoryValuesComponent implements OnInit {
         },{
           label: 'inventory values',
           data: values,
-          backgroundColor: [ 'rgba( 8, 148, 0, 1)'
+          backgroundColor: [ 'rgba( 67, 191, 10, 1)'
           ],
           borderColor: [
               'rgba(100, 100, 100, 1)'
@@ -69,14 +73,6 @@ export class UserInventoryValuesComponent implements OnInit {
       },
       options: {
           scales: {
-            x: {
-              
-              
-              title: {
-                display: true,
-                text: 'Date'
-              }
-            },
               y: {
                   beginAtZero: true
               }
