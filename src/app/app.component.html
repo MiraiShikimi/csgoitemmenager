@@ -1,40 +1,56 @@
 
 <app-header></app-header>
 
-
-
 <body class="mainBody">
 
-
+<!-- Admin stuff-->
 <div  class="container-xl" id="mainContainer">
-    
-<div  *ngIf="myRoles.admin">
-    <div >
-    <div class="my-class">
-        <button type="button" (click)="onOpenModal(null, 'add')" id="addItemButton" class="btn btn-primary">add Item</button>
-        <button type="button" (click)="onRefreshPrices()" id="refreshItemPrices" class="btn btn-primary" style="margin-left: 10px;">refresh item prices</button>
-    </div >
-<div class="card-group">
-  <div *ngFor="let csgoItem of csgoItems" class="flex-wrap">
-    <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{csgoItem?.imageURL}}" class="card-img-top" alt="..." style="width: 200px;height:128px;">
-    <div class="card-body">
-      <h5 class="card-title">{{csgoItem?.displayName}}</h5>
-      <p class="card-text">{{csgoItem?.lowestPrice}}</p>
-      <button type="button" (click)="onOpenModal(csgoItem, 'update')" id="updateItemButton" class="btn btn-primary">edit Item</button>
-      <button type="button" (click)="onOpenModal(csgoItem, 'addUserItem')" id="addUserItemButton" class="btn btn-primary" style="margin-left: 10px;">Add Item to user</button>
+
+    <div class="container"  *ngIf="myRoles.admin">
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#allcsgoitems">Show Items</button>
+        <div id="allcsgoitems" class="collapse">
+            <div >
+                <div >
+                <div class="my-class">
+                    <button type="button" (click)="onOpenModal(null, 'add')" id="addItemButton" class="btn btn-primary">add Item</button>
+                    <button type="button" (click)="onRefreshPrices()" id="refreshItemPrices" class="btn btn-primary" style="margin-left: 10px;">refresh item prices</button>
+                </div >
+            <div class="card-group">
+              <div *ngFor="let csgoItem of csgoItems" class="flex-wrap thecsgoitem" >
+                <div class="center">
+                <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{csgoItem?.imageURL}}" class="card-img-top csgo-item-image" alt="..." >
+            </div>
+                <div class="card-body" style="padding-bottom: 0%; padding-top: 0%;">
+                    <div style="height: 50px;">
+                        <h5 class="card-title">{{csgoItem?.displayName}}</h5>
+                    </div>
+                 
+                  <p  class="card-text">{{csgoItem?.lowestPrice}}</p>
+                  <div class="bottom-right">
+                  <button type="button" (click)="onOpenModal(csgoItem, 'update')" id="updateItemButton" class="btn btn-primary">edit Item</button>
+                  <button type="button" (click)="onOpenModal(csgoItem, 'addUserItem')" id="addUserItemButton" class="btn btn-primary" style="margin-left: 10px;">Add Item to user</button>
+                </div>
+                </div>
+              </div>
+            </div >
+            </div>
+            </div>
+          
+        </div>
     </div>
-  </div>
-</div >
+    
+
 </div>
-</div>
-</div>
+
+
+<!-- User Items -->
+<div *ngIf="myRoles.user" class="container-xl" id="userItemContainer">
+<app-user-inventory-values ></app-user-inventory-values>
 <button type="button" (click)="onOpenModal(null, 'addUserItem2')" id="addUserItemButton2" class="btn btn-primary">add user Item 2</button>
+<app-user-items ></app-user-items>
+</div >
 
-<app-user-inventory-values *ngIf="myRoles.user"></app-user-inventory-values>
 
-<app-user-items *ngIf="myRoles.user">
-
-</app-user-items>
 
 </body>
 

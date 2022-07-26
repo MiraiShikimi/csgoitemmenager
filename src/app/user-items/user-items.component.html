@@ -7,6 +7,7 @@
         <th>Skin name</th>
         <th>Quantity</th>
         <th>lowest selling Price</th>
+        <th>total price</th>
         <th></th>
       </tr>
     </thead>
@@ -16,6 +17,7 @@
         <td>{{userItem.csgoItem.displayName}}</td>
         <td>{{userItem.quantity}}</td>
         <td>{{userItem.csgoItem.lowestPrice}} €</td>
+        <td>{{(userItem.csgoItem.lowestPrice * userItem.quantity).toFixed(2)}} €</td>
         <td>
           <button type="button" (click)="onOpenModal(userItem,'editItem')" id="updateItemButton" class="btn btn-primary">edit Item</button>
         </td>
