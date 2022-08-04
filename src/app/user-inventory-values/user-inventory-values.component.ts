@@ -80,7 +80,7 @@ export class UserInventoryValuesComponent implements OnInit {
             x:{
               type: 'time',
               time: {
-                unit: 'minute'
+                unit: 'day'
             }
 
             },
