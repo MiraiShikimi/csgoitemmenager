@@ -5,6 +5,7 @@ import {Chart, registerables} from 'node_modules/chart.js'
 import { CustomResponse } from '../interface/custom-response';
 import { userInventoryValues } from '../interface/userInventoryValues';
 import { UserInventoryValueServiceService } from '../service/user-inventory-value-service.service';
+import 'chartjs-adapter-date-fns';
 
 @Component({
   selector: 'app-user-inventory-values',
@@ -50,13 +51,13 @@ export class UserInventoryValuesComponent implements OnInit {
           datasets: [{
             label: 'inventory values taxed',
             data: values2,
-            backgroundColor: [ 'rgba( 3, 252, 207, 1)'
-            ],
-            borderColor: [
-                'rgba(100, 100, 100, 1)'
-            ],
+            backgroundColor: ['rgba( 3, 252, 207, 1)'],
+            borderColor: ['rgba(100, 100, 100, 1)'],
             borderWidth: 1,
             fill: true,
+            pointRadius: 0.5,
+            pointHitRadius: 10,
+            tension: 0.33
             
         },{
           label: 'inventory values',
@@ -68,11 +69,21 @@ export class UserInventoryValuesComponent implements OnInit {
           ],
           borderWidth: 1,
           fill: true,
+          pointRadius: 0.5,
+          pointHitRadius: 10,
+          tension: 0.33
       }
         ]
       },
       options: {
           scales: {
+            x:{
+              type: 'time',
+              time: {
+                unit: 'minute'
+            }
+
+            },
               y: {
                   beginAtZero: true
               }

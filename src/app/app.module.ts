@@ -42,7 +42,8 @@ import { UserInventoryValuesComponent } from './user-inventory-values/user-inven
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    
 
     
     
