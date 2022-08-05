@@ -11,7 +11,7 @@
       <div class="flex-grow-1 float-right">
           <div *ngIf="isLoggedIn" ngbDropdown class="float-right">
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                  <button  ngbDropdownItem>Profile</button>
+                  <button  ngbDropdownItem ><a href="src/app/pickuseritem/pickuseritem.component.html">profile</a></button>
                   <button (click)="logout()" ngbDropdownItem>Logout</button>
               </div>
               <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
