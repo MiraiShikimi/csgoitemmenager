@@ -57,7 +57,7 @@ export class UserInventoryValuesComponent implements OnInit {
             fill: true,
             pointRadius: 0.5,
             pointHitRadius: 10,
-            tension: 0.20
+            tension: 0.33
             
         },{
           label: 'inventory values',
@@ -71,7 +71,7 @@ export class UserInventoryValuesComponent implements OnInit {
           fill: true,
           pointRadius: 0.5,
           pointHitRadius: 10,
-          tension: 0.20
+          tension: 0.33
       }
         ]
       },

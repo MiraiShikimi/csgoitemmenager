@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
       <div class="flex-grow-1">
-          <a aria-label="Home" class="logo" routerLink="/">
+          <a aria-label="Home" class="logo" routerLink="">
             
               <span class="reddit-text">
                   CSGO Inventory Value Maneger
@@ -22,7 +22,9 @@
           <div *ngIf="!isLoggedIn">
               <a routerLink="/sign-up" class="float-right sign-up mr-2">Sign up</a>
               <a routerLink="/login" class="float-right login mr-2">Login</a>
+             
           </div>
+          <a routerLink="/items" class="float-right login mr-2">manage items</a>
       </div>
   </nav>
 </header>

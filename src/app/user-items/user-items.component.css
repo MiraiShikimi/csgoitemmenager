@@ -1,0 +1,9 @@
+.edit-icon{
+    font-size: 30px;
+    color: rgb(29, 29, 29);
+    transition: 200ms;
+}
+
+.edit-icon:hover{
+    color: rgb(59, 59, 59);
+}

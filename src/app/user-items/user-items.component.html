@@ -1,5 +1,5 @@
-<div class="container">
-  <h2>Your Items</h2>           
+
+<div class="container">           
   <table class="table table-striped">
     <thead>
       <tr>
@@ -14,12 +14,16 @@
     <tbody>
       <tr *ngFor="let userItem of userItems">
         <td><img src="https://steamcommunity-a.akamaihd.net/economy/image/{{userItem?.csgoItem.imageURL}}" alt="..." width="48"> </td>
-        <td>{{userItem.csgoItem.displayName}}</td>
-        <td>{{userItem.quantity}}</td>
-        <td>{{userItem.csgoItem.lowestPrice}} €</td>
-        <td>{{(userItem.csgoItem.lowestPrice * userItem.quantity).toFixed(2)}} €</td>
-        <td>
-          <button type="button" (click)="onOpenModal(userItem,'editItem')" id="updateItemButton" class="btn btn-primary">edit Item</button>
+        <td class="align-middle" >{{userItem.csgoItem.displayName}}</td>
+        <td class="align-middle">{{userItem.quantity}}</td>
+        <td class="align-middle">{{userItem.csgoItem.lowestPrice}} €</td>
+        <td class="align-middle">{{(userItem.csgoItem.lowestPrice * userItem.quantity).toFixed(2)}} €</td>
+        <td class="align-middle">
+          <button type="button" (click)="onOpenModal(userItem,'editItem')" id="updateItemButton" style="border: 0; background-color: transparent;">
+            <span class="edit-icon">
+              <fa-icon [icon]="faPenSquare"></fa-icon>
+            </span>
+            </button>
         </td>
       </tr>
     </tbody>

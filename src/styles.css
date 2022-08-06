@@ -1,12 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
 @import url('https://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
-
-body{
-    background: #edf1f5;
-    margin-top:  64px;
-}
+/*@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
+*/
 
 .pick-user-item-div{
     display:flex;
@@ -76,7 +72,7 @@ body{
 
 .mainBody{
     background: #edf1f5;
-    margin-top:  64px;
+    padding-top:  64px;
 
 }
 

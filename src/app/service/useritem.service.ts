@@ -31,9 +31,13 @@ export class UseritemService {
     
   }
 
-
+/*
   public updateCSGOItems(userItem: userItem): Observable<CustomResponse>{
-    return this.http.put<CustomResponse>(`${this.apiServerUrl}/update`, userItem);
+    return this.http.put<CustomResponse>(`${this.apiServerUrl}/Quantity`, userItem);
+  }
+*/
+  public updateCSGOItems(userItem: userItem): Observable<CustomResponse>{
+    return this.http.put<CustomResponse>(`${this.apiServerUrl}/quantity`, userItem);
   }
 
 /*

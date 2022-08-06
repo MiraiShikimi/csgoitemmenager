@@ -19,6 +19,10 @@ import { TokenInterceptor } from './token-intercepter';
 import { UserItemsComponent } from './user-items/user-items.component';
 import { PickuseritemComponent } from './pickuseritem/pickuseritem.component';
 import { UserInventoryValuesComponent } from './user-inventory-values/user-inventory-values.component';
+import { HomescreenComponent } from './homescreen/homescreen.component';
+import { ManageitemsComponent } from './manageitems/manageitems.component';
+import { ItemscontrollComponent } from './itemscontroll/itemscontroll.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +33,10 @@ import { UserInventoryValuesComponent } from './user-inventory-values/user-inven
     HomeComponent,
     UserItemsComponent,
     PickuseritemComponent,
-    UserInventoryValuesComponent
+    UserInventoryValuesComponent,
+    HomescreenComponent,
+    ManageitemsComponent,
+    ItemscontrollComponent
   ],
   imports: [
     BrowserModule,
@@ -56,5 +63,6 @@ import { UserInventoryValuesComponent } from './user-inventory-values/user-inven
     }
   ],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

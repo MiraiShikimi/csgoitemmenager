@@ -1,0 +1,41 @@
+.plus-icon-span{
+    color: rgb(0, 192, 0);
+    font-size: 40px;
+    text-align: end;
+    transition: 200ms;
+}
+
+.plus-icon-span:hover{
+    color: rgb(0, 252, 0);
+}
+
+.plus-icon-buttton{
+    background-color: transparent;
+    border: 0;
+}
+
+.table-tittle-div{
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-right: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-button-text{
+    display: inline;
+    margin: 0;
+    margin-right: 5px;
+}
+
+.add-button-div{
+    display: flex;
+    align-items: center;
+}
+
+.conrol-buttons-div{
+    position: fixed;
+    top: 200px;
+    right: 20px;
+    background-color: red;
+}

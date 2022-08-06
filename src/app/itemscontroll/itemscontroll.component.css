@@ -1,0 +1,85 @@
+.csgo-items-div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.csgo-item{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    padding: 10px;
+    padding-top: 0;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    width: 200px;
+    height: 325px;
+}
+
+.item-name{
+    padding-bottom: 10px;
+    border-bottom: 1px dashed gray;
+}
+
+.image-div{
+    position: relative;
+}
+
+.csgo-item-image{
+    width: 170px;
+    height: 170px;
+
+}
+
+.csgo-item-bottom-part{
+    position: relative;
+   
+ 
+
+}
+
+.update-button{
+    color: rgb(0, 185, 0);
+    font-size: 30px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    border: 0;
+    background-color: transparent;
+}
+
+.update-button:hover{
+    color: rgb(3, 212, 3);
+}
+
+.item-price{
+    font-size: 20px;
+    margin: 0;
+    display: inline;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+
+.conrol-buttons-div{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50px;
+    right: 0;
+}
+
+.conrol-buttons{
+    
+    width: 40px;
+    margin: 5px;
+    
+}
+
+body{
+    padding-right: 40px;
+    background-color: rgb(255, 255, 255);
+}
+

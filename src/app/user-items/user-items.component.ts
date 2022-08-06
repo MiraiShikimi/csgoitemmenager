@@ -6,6 +6,9 @@ import { tap } from 'rxjs';
 import { CustomResponse } from '../interface/custom-response';
 import { userItem } from '../interface/useritem';
 import { UseritemService } from '../service/useritem.service';
+import { faPenSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-user-items',
@@ -14,6 +17,8 @@ import { UseritemService } from '../service/useritem.service';
 })
 export class UserItemsComponent implements OnInit {
 
+  faplus=faPlus;
+  faPenSquare = faPenSquare;
   public userItems: userItem[];
   public roles: String[];
   public admin: boolean;
@@ -85,6 +90,7 @@ export class UserItemsComponent implements OnInit {
     console.log(userItem);
     this.userItemService.updateCSGOItems(userItem).subscribe(
       (response: CustomResponse) => {
+        console.log("user item edit response")
         console.log(response);
         this.getCSGOItems();
       },

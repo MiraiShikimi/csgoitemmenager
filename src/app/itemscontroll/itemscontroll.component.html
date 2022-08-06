@@ -1,0 +1,116 @@
+<body class="mainBody">
+
+    <!-- Admin stuff-->
+    <div class="container-xl my-container" id="mainContainer">
+
+        <div class="container-xl" *ngIf="myRoles.admin">
+            <div id="allcsgoitems">
+                <div>
+                    <div>
+                        <div class="conrol-buttons-div">
+
+                            <button type="button" (click)="onOpenModal(null, 'add')" id="addItemButton"
+                                class="btn btn-primary conrol-buttons">
+                                <fa-icon [icon]="faPlusCircle"></fa-icon>
+                            </button>
+                            <button type="button" (click)="onRefreshPrices()" id="refreshItemPrices"
+                                class="btn btn-primary conrol-buttons" >
+                                <fa-icon [icon]="faSync"></fa-icon>
+                            </button>
+                        </div>
+                        <div class="csgo-items-div">
+                            <div *ngFor="let csgoItem of csgoItems" class="csgo-item">
+                                <div class="image-div">
+                                    <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{csgoItem?.imageURL}}"
+                                        class="csgo-item-image" alt="...">
+                                    <button type="button" (click)="onOpenModal(csgoItem, 'update')"
+                                        id="updateItemButton" class="update-button">
+                                        <fa-icon [icon]="faPen"></fa-icon>
+                                    </button>
+                                </div>
+                                <div>
+                                    <h5 class="item-name card-title">{{csgoItem?.displayName}}</h5>
+                                </div>
+                                <div class="csgo-item-bottom-part" style="flex: 1;">
+                                    <p class="item-price">
+                                        {{csgoItem?.lowestPrice}}€
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+
+
+<!-- add Item modal-->
+<div id="addItemModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form #addForm="ngForm" (ngSubmit)="onAddItem(addForm)">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Item</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>HASH NAME</label>
+                        <input type="text" ngModel name="hashName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>IMAGE URL</label>
+                        <input type="text" ngModel name="imageURL" class="form-control" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" id="closeModal" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="submit" [disabled]="addForm.invalid" class="btn btn-success">
+                        <span>Add</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- eddit Item modal-->
+<div id="updateItemModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form #updateForm="ngForm">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Item</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>IMAGE URL</label>
+                        <input type="text" ngModel="{{updatingCSGOItem?.imageURL}}" name="imageURL" class="form-control"
+                            required>
+                    </div>
+                    <input type="hidden" ngModel="{{updatingCSGOItem?.id}}" name="id" id="id" class="form-contorl">
+                    <input type="hidden" ngModel="{{updatingCSGOItem?.hashName}}" name="hashName" id="hashName"
+                        class="form-contorl">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" id="closeupdateModal" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="submit" (click)="onUpdateItem(updateForm.value,updateForm)" class="btn btn-success">
+                        <span>update</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
