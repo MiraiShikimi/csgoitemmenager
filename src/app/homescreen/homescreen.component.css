@@ -33,9 +33,3 @@
     align-items: center;
 }
 
-.conrol-buttons-div{
-    position: fixed;
-    top: 200px;
-    right: 20px;
-    background-color: red;
-}

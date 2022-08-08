@@ -11,6 +11,8 @@ import { CsgoitemService } from '../service/csgoitem.service';
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-itemscontroll',
@@ -18,6 +20,7 @@ import { faSync } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./itemscontroll.component.css']
 })
 export class ItemscontrollComponent implements OnInit {
+  faHome = faHome;
   faSync = faSync;
   faPlusCircle = faPlusCircle;
   faPen = faPenSquare;
@@ -30,7 +33,8 @@ export class ItemscontrollComponent implements OnInit {
 
   constructor(private csogoItemService: CsgoitemService,
     private localStorage: LocalStorageService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
     ) { this.myRoles = {
       user: false,
       admin: false,

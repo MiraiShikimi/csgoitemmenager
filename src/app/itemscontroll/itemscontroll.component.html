@@ -9,12 +9,19 @@
                     <div>
                         <div class="conrol-buttons-div">
 
+                            <button type="button" class="btn btn-primary conrol-buttons">
+                                <a routerLink="">
+                                    <span class="home-icon">
+                                    <fa-icon [icon]="faHome"></fa-icon>
+                                </span>
+                                </a>
+                            </button>
                             <button type="button" (click)="onOpenModal(null, 'add')" id="addItemButton"
                                 class="btn btn-primary conrol-buttons">
                                 <fa-icon [icon]="faPlusCircle"></fa-icon>
                             </button>
                             <button type="button" (click)="onRefreshPrices()" id="refreshItemPrices"
-                                class="btn btn-primary conrol-buttons" >
+                                class="btn btn-primary conrol-buttons">
                                 <fa-icon [icon]="faSync"></fa-icon>
                             </button>
                         </div>

@@ -64,7 +64,7 @@ header{
     text-transform: uppercase;
     padding: 3px 16px;
     opacity: 1;
-    border: 0px;
+    border: 1px solid transparent;
 }
 
 .userdetails:hover{
@@ -95,3 +95,12 @@ header{
     max-height: 24px;
     max-width: 24px;
 }
+
+.manage-items{
+transition: 200ms;
+}
+.manage-items:hover{
+    background-color: #0079d3;
+    color: white;
+}
+
