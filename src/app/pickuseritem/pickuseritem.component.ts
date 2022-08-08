@@ -5,7 +5,7 @@ import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-pickuseritem',
   templateUrl: './pickuseritem.component.html',
-  styleUrls: ['./pickuseritem.component.css']
+  styleUrls: ['./pickuseritem.component.scss']
 })
 export class PickuseritemComponent implements OnInit {
 

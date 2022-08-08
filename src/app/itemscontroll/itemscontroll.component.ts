@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-itemscontroll',
   templateUrl: './itemscontroll.component.html',
-  styleUrls: ['./itemscontroll.component.css']
+  styleUrls: ['./itemscontroll.component.scss']
 })
 export class ItemscontrollComponent implements OnInit {
   faHome = faHome;

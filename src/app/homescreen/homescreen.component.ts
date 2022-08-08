@@ -14,7 +14,7 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-homescreen',
   templateUrl: './homescreen.component.html',
-  styleUrls: ['./homescreen.component.css']
+  styleUrls: ['./homescreen.component.scss']
 })
 export class HomescreenComponent implements OnInit {
   faPlus = faPlusCircle;

@@ -10,7 +10,7 @@ import 'chartjs-adapter-date-fns';
 @Component({
   selector: 'app-user-inventory-values',
   templateUrl: './user-inventory-values.component.html',
-  styleUrls: ['./user-inventory-values.component.css']
+  styleUrls: ['./user-inventory-values.component.scss']
 })
 export class UserInventoryValuesComponent implements OnInit {
 
