@@ -51,25 +51,25 @@ export class UserInventoryValuesComponent implements OnInit {
           datasets: [{
             label: 'inventory values taxed',
             data: values2,
-            backgroundColor: ['rgba( 3, 252, 207, 1)'],
-            borderColor: ['rgba(100, 100, 100, 1)'],
-            borderWidth: 1,
-            fill: true,
-            pointRadius: 0.5,
+            backgroundColor: ['rgba( 3, 115, 252, 1)'],
+            borderColor: ['rgba( 3, 115, 252, 1)'],
+            borderWidth: 2,
+            fill: false,
+            pointRadius: 1,
             pointHitRadius: 10,
             tension: 0.33
             
         },{
           label: 'inventory values',
           data: values,
-          backgroundColor: [ 'rgba( 67, 191, 10, 1)'
+          backgroundColor: [ 'rgba( 11, 168, 0, 1)'
           ],
           borderColor: [
-              'rgba(100, 100, 100, 1)'
+              'rgba( 11, 168, 0, 1)'
           ],
-          borderWidth: 1,
-          fill: true,
-          pointRadius: 0.5,
+          borderWidth: 2,
+          fill: false,
+          pointRadius: 1,
           pointHitRadius: 10,
           tension: 0.33
       }
@@ -85,7 +85,7 @@ export class UserInventoryValuesComponent implements OnInit {
 
             },
               y: {
-                  beginAtZero: true
+                  beginAtZero: false
               }
           }
       }

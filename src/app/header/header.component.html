@@ -1,30 +1,40 @@
 <header>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-      <div class="flex-grow-1">
-          <a aria-label="Home" class="logo" routerLink="">
-            
-              <span class="reddit-text">
-                  CSGO Inventory Value Maneger
-              </span>
-          </a>
-      </div>
-      <div class="flex-grow-1 float-right">
-          <div *ngIf="isLoggedIn" ngbDropdown class="float-right">
-              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                  <button  ngbDropdownItem >empty</button>
-                  <button (click)="logout()" ngbDropdownItem>Logout</button>
-              </div>
-              <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
-                  <img class="account-icon" src="https://www.redditstatic.com/avatars/avatar_default_08_D4E815.png">
-                  {{username}}
-              </button>
-          </div>            
-          <div *ngIf="!isLoggedIn">
-              <a routerLink="/sign-up" class="float-right sign-up mr-2">Sign up</a>
-              <a routerLink="/login" class="float-right login mr-2">Login</a>
-             
-          </div>
-          <a routerLink="/items" class="float-right login mr-2 manage-items">manage items</a>
-      </div>
-  </nav>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light header-nav">
+        <div class="flex-grow-1">
+            <a aria-label="Home" class="logo" routerLink="">
+
+                <span class="reddit-text">
+                    CSGO Inventory Value Maneger
+                </span>
+            </a>
+
+        </div>
+        <div class="flex-grow-1 float-right">
+            <div *ngIf="isLoggedIn" ngbDropdown class="float-right">
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+                    <button ngbDropdownItem (click)="switchTheme()">
+                        
+                        <fa-icon *ngIf="theme === 'light-theme' " [icon]="faSun"></fa-icon>
+                   
+                    <span style="color: white;">
+                        <fa-icon *ngIf="theme === 'dark-theme' " [icon]="faMoon"></fa-icon>
+                    </span>
+                        {{ theme === "light-theme" ? "Switch to dark" : "Switch to light" }}
+                    </button>
+                    <button ngbDropdownItem>empty</button>
+                    <button (click)="logout()" ngbDropdownItem>Logout</button>
+                </div>
+                <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
+                    <img class="account-icon" src="https://www.redditstatic.com/avatars/avatar_default_08_D4E815.png">
+                    {{username}}
+                </button>
+            </div>
+            <div *ngIf="!isLoggedIn">
+                <a routerLink="/sign-up" class="float-right sign-up mr-2">Sign up</a>
+                <a routerLink="/login" class="float-right login mr-2">Login</a>
+
+            </div>
+            <a routerLink="/items" class="float-right login mr-2 manage-items">manage items</a>
+        </div>
+    </nav>
 </header>

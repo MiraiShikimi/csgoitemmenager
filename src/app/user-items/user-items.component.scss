@@ -1,9 +1,79 @@
 .edit-icon{
     font-size: 30px;
-    color: rgb(29, 29, 29);
+    color: var(--text-color);
     transition: 200ms;
 }
 
 .edit-icon:hover{
     color: rgb(59, 59, 59);
+}
+
+.table-text{
+    color: var(--text-color) !important;
+}
+
+.plus-icon-span{
+    color: rgb(0, 192, 0);
+    font-size: 40px;
+    text-align: end;
+    transition: 200ms;
+}
+
+.plus-icon-span:hover{
+    color: rgb(0, 252, 0);
+}
+
+.plus-icon-buttton{
+    background-color: transparent;
+    border: 0;
+}
+
+.table-tittle-div{
+    color: var(--text-color);
+    margin-top: 50px;
+    margin-left: 25px;
+    margin-right: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-button-text{
+    color: var(--text-color);
+    display: inline;
+    margin: 0;
+    margin-right: 5px;
+}
+
+.add-button-div{
+    display: flex;
+    align-items: center;
+}
+
+.user-item-serch-bar{
+    background-color: var(--box-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    padding: 5px 15px;
+    flex: 1;
+    border: 2px solid var(--border-color);
+}
+
+.user-item-serch-bar-div{
+    padding: 15px 30px 10px 30px;
+    display: flex;
+   flex: 1;
+
+}
+
+::placeholder{
+    text-align: center;
+    justify-content: center;
+}
+
+.my-modal-header{
+    background-color: var(--background-color);
+}
+
+.h2 .add-button-text{
+    color:rgb(0, 192, 0);
 }

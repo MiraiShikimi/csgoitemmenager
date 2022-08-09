@@ -22,6 +22,8 @@ import { UserInventoryValuesComponent } from './user-inventory-values/user-inven
 import { HomescreenComponent } from './homescreen/homescreen.component';
 import { ManageitemsComponent } from './manageitems/manageitems.component';
 import { ItemscontrollComponent } from './itemscontroll/itemscontroll.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { AddItemsFilterPipe } from './pipes/add-items-filter.pipe';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { ItemscontrollComponent } from './itemscontroll/itemscontroll.component'
     UserInventoryValuesComponent,
     HomescreenComponent,
     ManageitemsComponent,
-    ItemscontrollComponent
+    ItemscontrollComponent,
+    FilterPipe,
+    AddItemsFilterPipe
   ],
   imports: [
     BrowserModule,

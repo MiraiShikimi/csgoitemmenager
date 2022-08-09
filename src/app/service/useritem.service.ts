@@ -31,20 +31,17 @@ export class UseritemService {
     
   }
 
-/*
-  public updateCSGOItems(userItem: userItem): Observable<CustomResponse>{
-    return this.http.put<CustomResponse>(`${this.apiServerUrl}/Quantity`, userItem);
-  }
-*/
   public updateCSGOItems(userItem: userItem): Observable<CustomResponse>{
     return this.http.put<CustomResponse>(`${this.apiServerUrl}/quantity`, userItem);
   }
 
-/*
+
   public deleteCSGOItems(csgoItemId: number): Observable<CustomResponse>{
-    return this.http.delete<CustomResponse>(`${this.apiServerUrl}/delete/${Number}`);
+    return this.http.delete<CustomResponse>(`${this.apiServerUrl}/delete/${csgoItemId}`);
   }
 
+
+  /*
   public refreshCSGOItems(csgoItemId: number): Observable<CustomResponse>{
     return this.http.get<CustomResponse>(`${this.apiServerUrl}/refresh/${Number}`);
   }

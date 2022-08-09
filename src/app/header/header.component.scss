@@ -72,7 +72,8 @@ header{
 }
 
 .dropdown-item{
-    background-color: #f8f9fa;
+    color: var(--text-color);
+    background-color: var(--box-color);
     font-size: 14px;
     font-weight: 500;
     line-height: 18px;
@@ -85,7 +86,7 @@ header{
 }
 
 .dropdown-menu{
-    background-color: #f8f9fa;
+    background-color: var(--box-color);
 }
 
 .account-icon{
@@ -99,8 +100,17 @@ header{
 .manage-items{
 transition: 200ms;
 }
+
 .manage-items:hover{
     background-color: #0079d3;
     color: white;
 }
+
+.header-nav{
+    background-color: var(--box-color);
+}
+
+
+
+
 

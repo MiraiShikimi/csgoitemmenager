@@ -8,6 +8,10 @@ import { userItem } from '../interface/useritem';
 import { UseritemService } from '../service/useritem.service';
 import { faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { csgoItem } from '../interface/csgoItem';
+import { CsgoitemService } from '../service/csgoitem.service';
 
 
 @Component({
@@ -16,19 +20,30 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./user-items.component.scss']
 })
 export class UserItemsComponent implements OnInit {
-
+  faPlus = faPlusCircle;
   faplus=faPlus;
   faPenSquare = faPenSquare;
+  faTrash = faTrash;
+
+  filterString: string = '';
+  filterChooseItemString: string = '';
+
+  public csgoItems: csgoItem[];
   public userItems: userItem[];
   public roles: String[];
+  public updatingCSGOItem: csgoItem;
   public admin: boolean;
   public user: boolean;
   public updatingUserItem: userItem;
 
 
-  constructor(private userItemService: UseritemService, private localStorage: LocalStorageService) { }
+  constructor(private csogoItemService: CsgoitemService, 
+              private userItemService: UseritemService,
+              private localStorage: LocalStorageService
+     ) { }
 
   ngOnInit(): void {
+    this.getUserCSGOItems();
     this.getCSGOItems();
     this.roles = this.localStorage.retrieve('roles')
     this.roles.forEach(role =>  {
@@ -49,7 +64,21 @@ export class UserItemsComponent implements OnInit {
       )
   }
 
+
   public getCSGOItems(): void {
+    this.csogoItemService.getCSGOItems().subscribe(
+      (response: CustomResponse) => {
+        console.log(response.data.csgoItems)
+        this.csgoItems = response.data.csgoItems;
+        
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message)
+      }
+    )
+  }
+
+  public getUserCSGOItems(): void {
     this.userItemService.getUserItems().subscribe(
       (response: CustomResponse) => {
         console.log(response)
@@ -62,7 +91,7 @@ export class UserItemsComponent implements OnInit {
     )
   }
 
-  public onOpenModal(userItem: userItem, mode: string): void {
+  public onOpenModal(userItem: userItem | csgoItem, mode: string): void {
 
     //const button = document.getElementById('addItemButton')
     const container = document.getElementById('mainContainer')
@@ -70,19 +99,30 @@ export class UserItemsComponent implements OnInit {
     button.type = 'button';
     button.style.display = 'none';
     button.setAttribute('data-toggle','modal');
-    if(mode === 'add'){
-      button.setAttribute('data-target','#addItemModal');
+    if(mode === 'addUserItem2'){
+      button.setAttribute('data-target','#addUserItemModal2');
+    }
+    if(mode === 'addUserItem'){
+      document.getElementById('userItemSelectClose').click();
+      this.updatingCSGOItem = <csgoItem> userItem;
+      button.setAttribute('data-target','#addUserItemModal');
     }
     if(mode === 'editItem'){
       console.log("yes")
-      this.updatingUserItem = userItem;
-      
+      this.updatingUserItem = <userItem> userItem;
       button.setAttribute('data-target','#updateUserItemModal');
+    }
+    if(mode === 'deleteItem'){
+      console.log("Deleteing Item")
+      this.updatingUserItem = <userItem> userItem;
+      button.setAttribute('data-target','#deleteUserItemModal');
     }
 
     container.appendChild(button);
     button.click();
   }
+
+  
 
   public onEditItem(userItem: userItem, updateForm: NgForm): void {
     document.getElementById('closeUpdateUserItemModal').click();
@@ -99,4 +139,37 @@ export class UserItemsComponent implements OnInit {
       }
     )
   }
+
+  public onAddUserItem(theUserItem: userItem, updateForm: NgForm): void{
+    document.getElementById('closeUserItemAddModal').click();
+    console.log("this here ")
+    theUserItem.csgoItem = this.updatingCSGOItem;
+    this.userItemService.addCSGOItems(theUserItem).subscribe (
+      (response: CustomResponse) => {
+        console.log(response);
+        this.getUserCSGOItems;
+        //location.reload();
+      },
+      (error: HttpErrorResponse) =>{
+        alert(error.message);
+      }
+    )
+  }
+
+  public onDeleteUserItem(): void{
+   document.getElementById('closeUserItemDeleteModal').click();
+    console.log("Deleting user Item")
+    this.userItemService.deleteCSGOItems(this.updatingUserItem.id).subscribe (
+      (response: CustomResponse) => {
+        console.log(response);
+        this.getUserCSGOItems();
+      },
+      (error: HttpErrorResponse) =>{
+        alert(error.message);
+      }
+    )
+  }
 }
+
+
+

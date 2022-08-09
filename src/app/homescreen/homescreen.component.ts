@@ -75,7 +75,7 @@ export class HomescreenComponent implements OnInit {
       }
     )
   }
-
+/*
   public onOpenModal(csgoItem: csgoItem, mode: string): void {
     //const button = document.getElementById('addItemButton')
     const container = document.getElementById('mainContainer')
@@ -108,7 +108,7 @@ export class HomescreenComponent implements OnInit {
 
   }
 
-
+*/
   public onAddItem(addForm: NgForm): void{
     document.getElementById('closeModal').click();
     this.csogoItemService.addCSGOItems(addForm.value).subscribe (
