@@ -146,8 +146,9 @@ export class UserItemsComponent implements OnInit {
     theUserItem.csgoItem = this.updatingCSGOItem;
     this.userItemService.addCSGOItems(theUserItem).subscribe (
       (response: CustomResponse) => {
+        this.getUserCSGOItems();
         console.log(response);
-        this.getUserCSGOItems;
+      
         //location.reload();
       },
       (error: HttpErrorResponse) =>{
