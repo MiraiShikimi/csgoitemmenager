@@ -132,6 +132,7 @@ export class UserItemsComponent implements OnInit {
       (response: CustomResponse) => {
         console.log("user item edit response")
         console.log(response);
+        updateForm.reset();
         this.getCSGOItems();
       },
       (error: HttpErrorResponse) => {
@@ -140,7 +141,7 @@ export class UserItemsComponent implements OnInit {
     )
   }
 
-  public onAddUserItem(theUserItem: userItem, updateForm: NgForm): void{
+  public onAddUserItem(theUserItem: userItem, addUserItemForm: NgForm): void{
     document.getElementById('closeUserItemAddModal').click();
     console.log("this here ")
     theUserItem.csgoItem = this.updatingCSGOItem;
@@ -148,6 +149,7 @@ export class UserItemsComponent implements OnInit {
       (response: CustomResponse) => {
         this.getUserCSGOItems();
         console.log(response);
+        addUserItemForm.reset();
       
         //location.reload();
       },

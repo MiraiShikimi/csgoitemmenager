@@ -115,11 +115,10 @@ export class HomescreenComponent implements OnInit {
       (response: CustomResponse) => {
         console.log(response);
         this.getCSGOItems();
-        addForm.reset;
+        addForm.reset();
       },
       (error: HttpErrorResponse) =>{
         alert(error.message);
-        addForm.reset;
       }
     )
 
