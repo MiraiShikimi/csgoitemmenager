@@ -60,23 +60,19 @@
 <!-- add Item modal-->
 <div id="addItemModal" class="modal fade">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content ">
             <form #addForm="ngForm" (ngSubmit)="onAddItem(addForm)">
-                <div class="modal-header">
-                    <h4 class="modal-title">Add Item</h4>
+                <div class="modal-header my-modal-header">
+                    <h4 class="modal-title header-text">Add Item</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>HASH NAME</label>
-                        <input type="text" ngModel name="hashName" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>IMAGE URL</label>
-                        <input type="text" ngModel name="imageURL" class="form-control" required>
-                    </div>
+                <div class="modal-body my-modal-header">
+                        <label class="input-lable">HASH NAME</label>
+                        <input type="text" ngModel name="hashName" class="modal-input" required>
+                        <label class="input-lable" >IMAGE URL</label>
+                        <input type="text" ngModel name="imageURL" class="modal-input" required>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer my-modal-header">
                     <button type="button" class="btn btn-warning" id="closeModal" data-dismiss="modal">
                         Cancel
                     </button>
@@ -95,21 +91,20 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form #updateForm="ngForm">
-                <div class="modal-header">
-                    <h4 class="modal-title">Add Item</h4>
+                <div class="modal-header my-modal-header">
+                    <h4 class="modal-title header-text" >Add Item</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>IMAGE URL</label>
-                        <input type="text" ngModel="{{updatingCSGOItem?.imageURL}}" name="imageURL" class="form-control"
+                <div class="modal-body my-modal-header">
+                        <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{updatingCSGOItem?.imageURL}}" alt="" class="modal-image">
+                        <label  class="input-lable" >IMAGE URL</label>
+                        <input type="text" ngModel="{{updatingCSGOItem?.imageURL}}" name="imageURL" class="modal-input"
                             required>
-                    </div>
                     <input type="hidden" ngModel="{{updatingCSGOItem?.id}}" name="id" id="id" class="form-contorl">
                     <input type="hidden" ngModel="{{updatingCSGOItem?.hashName}}" name="hashName" id="hashName"
                         class="form-contorl">
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer my-modal-header">
                     <button type="button" class="btn btn-warning" id="closeupdateModal" data-dismiss="modal">
                         Cancel
                     </button>

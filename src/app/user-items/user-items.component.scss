@@ -1,3 +1,21 @@
+.item-image-button{
+    width: 54px;
+    height: 54px;
+    border: none;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-image{
+   width: 48px;
+   transition: 150ms;
+}
+
+.item-image-button:hover .item-image{
+    width: 54px;
+}
+
 .edit-icon{
     font-size: 30px;
     color: var(--text-color);
@@ -37,6 +55,12 @@
     justify-content: space-between;
 }
 
+.input-lable{
+    color: var(--text-color);
+    margin-right: 20px;
+    font-size: 30px;
+}
+
 .add-button-text{
     color: var(--text-color);
     display: inline;
@@ -74,6 +98,27 @@
     background-color: var(--background-color);
 }
 
-.h2 .add-button-text{
-    color:rgb(0, 192, 0);
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-image{
+    width: 100px;
+}
+
+.modal-input{
+    background-color: var(--background-color);
+    border-radius: 5px;
+    font-size: 20px;
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    padding-left: 10px;
+    height: 40px;
+}
+
+.close{
+    color: var(--text-color);
 }
