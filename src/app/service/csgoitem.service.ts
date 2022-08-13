@@ -33,11 +33,11 @@ export class CsgoitemService {
   }
 
   public deleteCSGOItems(csgoItemId: number): Observable<CustomResponse>{
-    return this.http.delete<CustomResponse>(`${this.apiServerUrl}/delete/${Number}`);
+    return this.http.delete<CustomResponse>(`${this.apiServerUrl}/delete/${csgoItemId}`);
   }
 
   public refreshCSGOItems(csgoItemId: number): Observable<CustomResponse>{
-    return this.http.get<CustomResponse>(`${this.apiServerUrl}/updateprice/${Number}`);
+    return this.http.get<CustomResponse>(`${this.apiServerUrl}/updateprice/${csgoItemId}`);
   }
 
   public refreshAllCSGOItems(csgoItem: csgoItem): Observable<CustomResponse>{

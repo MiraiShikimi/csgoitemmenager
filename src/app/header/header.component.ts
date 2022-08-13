@@ -7,6 +7,7 @@ import { faMoon } from '@fortawesome/free-solid-svg-icons';
 import { faSun } from '@fortawesome/free-solid-svg-icons';
 import { DOCUMENT } from '@angular/common';
 import { LocalStorageService } from 'ngx-webstorage';
+import { MyRoles } from '../interface/roles';
 
 @Component({
   selector: 'app-header',
@@ -21,13 +22,20 @@ export class HeaderComponent implements OnInit {
   faUser = faUser;
   isLoggedIn: boolean;
   username: string;
+  public myRoles: MyRoles;
 
   constructor(private authService: AuthService,
      private router: Router,
      @Inject(DOCUMENT) private document: Document,
       private renderer: Renderer2,
       private localStorage: LocalStorageService,
-     ) {}
+     ) {
+      this.myRoles = {
+        user: false,
+        admin: false,
+        masterAdmin: false
+      };
+     }
 
   ngOnInit(): void {
     if (this.localStorage.retrieve('darkMode')===null){
@@ -39,6 +47,22 @@ export class HeaderComponent implements OnInit {
     this.username = this.authService.getUserName();
 
     this.initializeTheme();
+
+
+    this.localStorage.retrieve('roles').forEach(role => 
+      {
+        console.log(role)
+        switch(role){
+          case "ROLE_USER":
+           this.myRoles.user = true;
+           console.log(this.myRoles.user)
+            break;
+          case "ROLE_ADMIN":
+            this.myRoles.admin=true;
+            break;
+          }
+      }
+      )
     
  
   }

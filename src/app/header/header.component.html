@@ -34,7 +34,7 @@
                 <a routerLink="/login" class="float-right login mr-2">Login</a>
 
             </div>
-            <a routerLink="/items" class="float-right login mr-2 manage-items">manage items</a>
+            <a *ngIf="myRoles.admin" routerLink="/items" class="float-right login mr-2 manage-items">manage items</a>
         </div>
     </nav>
 </header>

@@ -91,3 +91,39 @@ body{
     text-align: center;
     justify-content: center;
 }
+
+.modal-body{
+    padding-bottom: 50px;
+}
+
+
+.user-item-serch-bar{
+    background-color: var(--box-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    padding: 5px 15px;
+    flex: 1;
+    border: 2px solid var(--border-color);
+}
+
+.user-item-serch-bar-div{
+    padding: 15px 30px 10px 30px;
+    display: flex;
+   flex: 1;
+
+}
+
+
+.delete-button{
+    color: rgb(73, 0, 0);
+    font-size: 30px;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    border: 0;
+    background-color: transparent;
+}
+
+.delete-button:hover{
+    color: rgb(155, 0, 0);
+}

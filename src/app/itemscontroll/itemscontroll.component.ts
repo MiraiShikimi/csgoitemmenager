@@ -12,6 +12,7 @@ import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,6 +25,10 @@ export class ItemscontrollComponent implements OnInit {
   faSync = faSync;
   faPlusCircle = faPlusCircle;
   faPen = faPenSquare;
+  faTrash = faTrash;
+
+  filterString: string = '';
+
   public csgoItems: csgoItem[];
   public updatingCSGOItem: csgoItem;
   public newUserItem: userItem;
@@ -126,6 +131,20 @@ export class ItemscontrollComponent implements OnInit {
     )
   }
 
+  public onDeleteCSGOItem(): void{
+    document.getElementById('closeCSGOItemDeleteModal').click();
+     console.log("Deleting user Item")
+     this.csogoItemService.deleteCSGOItems(this.updatingCSGOItem.id).subscribe (
+       (response: CustomResponse) => {
+         console.log(response);
+         this.getCSGOItems();
+       },
+       (error: HttpErrorResponse) =>{
+         alert(error.message);
+       }
+     )
+   }
+
 
 
 
@@ -142,6 +161,10 @@ export class ItemscontrollComponent implements OnInit {
     if(mode === 'update'){
       this.updatingCSGOItem = csgoItem;
       button.setAttribute('data-target','#updateItemModal');
+    }
+    if(mode === 'delete'){
+      this.updatingCSGOItem = csgoItem;
+      button.setAttribute('data-target','#deleteCSGOItemModal');
     }
     if(mode === 'addUserItem'){
       document.getElementById('userItemSelectClose').click();

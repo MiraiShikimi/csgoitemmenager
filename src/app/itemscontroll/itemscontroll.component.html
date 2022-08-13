@@ -25,8 +25,13 @@
                                 <fa-icon [icon]="faSync"></fa-icon>
                             </button>
                         </div>
+                        <div>
+                            <div class="user-item-serch-bar-div">
+                                <input type="text" class="user-item-serch-bar" placeholder="Filter" [(ngModel)]="filterString">
+                            </div>
+                        </div>
                         <div class="csgo-items-div">
-                            <div *ngFor="let csgoItem of csgoItems" class="csgo-item">
+                            <div *ngFor="let csgoItem of csgoItems | itemsControl:filterString" class="csgo-item">
                                 <div class="image-div">
                                     <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{csgoItem?.imageURL}}"
                                         class="csgo-item-image" alt="...">
@@ -34,6 +39,10 @@
                                         id="updateItemButton" class="update-button">
                                         <fa-icon [icon]="faPen"></fa-icon>
                                     </button>
+                                    <button type="button" (click)="onOpenModal(csgoItem, 'delete')"
+                                    id="updateItemButton" class="delete-button">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </button>
                                 </div>
                                 <div>
                                     <h5 class="item-name card-title">{{csgoItem?.displayName}}</h5>
@@ -113,6 +122,33 @@
                     </button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- delete user Item -->
+<div id="deleteCSGOItemModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content my-modal-header">
+            <div class="modal-header  my-modal-header">
+                <h4 class="modal-title header-text" >Are you sure you want to delete the Item?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body  my-modal-header">
+                <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{updatingCSGOItem?.imageURL}}" alt="..."
+                    class="modal-image">
+                <h2 class="header-text">{{updatingCSGOItem?.displayName}}</h2>
+            </div>
+            <div class="modal-footer my-modal-header">
+                <button type="button" class="btn btn-warning" id="closeCSGOItemDeleteModal" data-dismiss="modal">
+                    Cancel
+                </button>
+                <button type="submit" (click)="onDeleteCSGOItem()" class="btn btn-danger">
+                    <span>Yes</span>
+                </button>
+            </div>
         </div>
     </div>
 </div>

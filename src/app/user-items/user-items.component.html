@@ -3,7 +3,7 @@
         <h2 class="add-button-text text-center align-middle">Your Items </h2>
     </div>
     <div class="user-item-serch-bar-div">
-        <input type="text" class="user-item-serch-bar" placeholder="Search Items" [(ngModel)]="filterString">
+        <input type="text" class="user-item-serch-bar" placeholder="Filter" [(ngModel)]="filterString">
     </div>
     <div class="add-button-div">
         <h2 class="add-button-text text-center align-middle"> Add</h2>
@@ -20,10 +20,10 @@
         <thead>
             <tr>
                 <th></th>
-                <th>Skin name</th>
+                <th>Skin Name</th>
                 <th>Quantity</th>
-                <th>lowest selling Price</th>
-                <th>total price</th>
+                <th>Lowest Selling Price</th>
+                <th>Total Price</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -32,7 +32,8 @@
             <tr *ngFor="let userItem of userItems | filter:filterString">
                 <td>
                     <div class="item-image-button">
-                        <a target="_blank" href="https://steamcommunity.com/market/listings/730/{{userItem?.csgoItem.hashName}}">
+                        <a target="_blank"
+                            href="https://steamcommunity.com/market/listings/730/{{userItem?.csgoItem.hashName}}">
                             <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{userItem?.csgoItem.imageURL}}"
                                 alt="..." class="item-image">
                         </a>
@@ -75,18 +76,19 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                   
-                        <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{updatingUserItem?.csgoItem.imageURL}}" alt="" class="modal-image">
-                        <input type="hidden" ngModel="{{updatingUserItem?.csgoItem}}" name="csgoItem"
-                            class="form-control" required>
-                   
+
+                    <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{updatingUserItem?.csgoItem.imageURL}}"
+                        alt="" class="modal-image">
+                    <input type="hidden" ngModel="{{updatingUserItem?.csgoItem}}" name="csgoItem" class="form-control"
+                        required>
+
                     <input type="hidden" ngModel="{{updatingUserItem?.id}}" name="id" id="id" class="form-contorl">
                     <div>
-                    <label class="input-lable">Quantity</label>
-                    <input type="number" ngModel="{{updatingUserItem?.quantity}}" name="quantity" id="quantity"
-                        class="form-contorl modal-input" required>
+                        <label class="input-lable">Quantity</label>
+                        <input type="number" ngModel="{{updatingUserItem?.quantity}}" name="quantity" id="quantity"
+                            class="form-contorl modal-input" required>
                     </div>
-                    </div>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-warning" id="closeUpdateUserItemModal" data-dismiss="modal">
                         Cancel
@@ -109,7 +111,7 @@
         <div class="modal-content my-modal-header">
             <div class="modal-header">
                 <h4 class="modal-title add-button-text " style="margin-right: 20px;">Add Item</h4>
-                <input type="text" class="user-item-serch-bar" placeholder="Search Items"
+                <input type="text" class="user-item-serch-bar" placeholder="Filter"
                     [(ngModel)]="filterChooseItemString">
                 <button type="button" class="close" id="userItemSelectClose" data-dismiss="modal"
                     aria-hidden="true">&times;</button>
@@ -138,12 +140,13 @@
                     <h4 class="modal-title add-button-text">Add Item</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
-                <div class="modal-body">       
-                        <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{updatingCSGOItem?.imageURL}}" alt="" class="modal-image">
-                        <label class="input-lable">Quantity</label>
-                        <input type="number" ngModel name="quantity" class="form-control modal-input" required>
-                        <input type="hidden" ngModel="{{updatingCSGOItem}}" name="csgoItem" id="csgoItem"
-                            class="form-contorl">          
+                <div class="modal-body">
+                    <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{updatingCSGOItem?.imageURL}}" alt=""
+                        class="modal-image">
+                    <label class="input-lable">Quantity</label>
+                    <input type="number" ngModel name="quantity" class="form-control modal-input" required>
+                    <input type="hidden" ngModel="{{updatingCSGOItem}}" name="csgoItem" id="csgoItem"
+                        class="form-contorl">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-warning" id="closeUserItemAddModal" data-dismiss="modal">
@@ -171,6 +174,9 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
+                <img src="https://steamcommunity-a.akamaihd.net/economy/image/{{updatingUserItem?.csgoItem.imageURL}}" alt=""
+                    class="modal-image">
+                    <h2 class="header-text">{{updatingUserItem?.csgoItem.displayName}}</h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-warning" id="closeUserItemDeleteModal" data-dismiss="modal">

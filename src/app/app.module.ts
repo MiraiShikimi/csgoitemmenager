@@ -24,6 +24,7 @@ import { ManageitemsComponent } from './manageitems/manageitems.component';
 import { ItemscontrollComponent } from './itemscontroll/itemscontroll.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { AddItemsFilterPipe } from './pipes/add-items-filter.pipe';
+import { ItemsControlPipe } from './pipes/items-control.pipe';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AddItemsFilterPipe } from './pipes/add-items-filter.pipe';
     ManageitemsComponent,
     ItemscontrollComponent,
     FilterPipe,
-    AddItemsFilterPipe
+    AddItemsFilterPipe,
+    ItemsControlPipe
   ],
   imports: [
     BrowserModule,
