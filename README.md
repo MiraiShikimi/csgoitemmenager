@@ -1,3 +1,7 @@
+#Deployed 
+
+currently running at https://steam-invest-tracker.web.app/
+
 # Investmentapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
