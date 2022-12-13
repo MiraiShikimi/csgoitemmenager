@@ -1,5 +1,7 @@
 # Deployed 
 
+This is only for the purpose of learning and and not even half way done :)
+
 currently running at https://steam-invest-tracker.web.app/
 
 # Investmentapp
