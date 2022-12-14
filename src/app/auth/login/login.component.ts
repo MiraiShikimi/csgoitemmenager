@@ -5,6 +5,7 @@ import { LoginRequestPayload } from './loginRequest.Payload';
 import { ToastrService } from 'ngx-toastr';
 import { throwError } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -36,8 +37,7 @@ export class LoginComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       if (params.registered !== undefined && params.registered === 'true') {
         this.toastr.success('Signup successfull')
-        this.registerSuccessMessage = 'Please Check your inbox for activation email '
-        + 'activate your account before you Login!';
+        this.registerSuccessMessage = 'your registration has been successfull';
       }
     });
   }
@@ -46,17 +46,20 @@ export class LoginComponent implements OnInit {
     this.loginRequestPayload.username = this.loginForm.get('username').value;    
     this.loginRequestPayload.password = this.loginForm.get('password').value;    
 
-    this.authService.login(this.loginRequestPayload).subscribe(data => {
-      if (data) {
-        this.isError = false;
-       // this.router.navigateByUrl('/')
-        this.toastr.success('login Successful')
-        location.href = "/"
-        
-      }else {
+    this.authService.login(this.loginRequestPayload).subscribe(
+      data => {
+              if (data) {
+            this.isError = false;
+            // this.router.navigateByUrl('/')
+            this.toastr.success('login Successful')
+            location.href = "/"
+        }
+    }
+    ,
+       (error: HttpErrorResponse) =>{
         this.isError = true;
-      }
-    });
+       }
+    );
   }
 
 }
