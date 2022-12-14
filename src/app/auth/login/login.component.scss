@@ -1,12 +1,22 @@
 .login-section{
     margin: 100px;
+    background-color: gray;
+}
+
+.backgournd-main{
+    background-color: gray;
+}
+
+.main-login-div{
+    background-color: var(--box-color);
+    color: var(--text-color);
 }
 
 .login-failed{
     text-align: center;
     margin: auto;
     margin-top: 10px;
-    border: 2px solid black;
+    border: 4px solid black;
     width: 65%;    
     background-color: red;
 }

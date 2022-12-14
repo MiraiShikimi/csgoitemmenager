@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
     }
     ,
        (error: HttpErrorResponse) =>{
-        this.isError = true;
+        this.isError = true
        }
     );
   }
