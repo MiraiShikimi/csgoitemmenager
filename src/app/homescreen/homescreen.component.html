@@ -6,5 +6,9 @@
             <app-user-inventory-values></app-user-inventory-values>
             <app-user-items></app-user-items>
         </div>
+
+        <div *ngIf="!myRoles.user" class="container-xl">
+            <img src="../../assets/nonesential/home_image.png" alt="" style="height: 100%; width: 100%; padding: 0% 10%;">
+        </div>
     </div>
 </body>

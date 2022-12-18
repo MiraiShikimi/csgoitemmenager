@@ -54,10 +54,10 @@ header{
     border: 1px solid;
     border-radius: 4px;
     box-sizing: border-box;
-    text-align: center;
+    text-align: right;
     letter-spacing: 1px;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: .5px;
     line-height: 24px;
@@ -65,6 +65,7 @@ header{
     padding: 3px 16px;
     opacity: 1;
     border: 1px solid transparent;
+    min-width: 125px;
 }
 
 .userdetails:hover{
@@ -90,9 +91,6 @@ header{
 }
 
 .account-icon{
-    border-radius: 4px;
-    float: left;
-    margin-right: 5px;
     max-height: 24px;
     max-width: 24px;
 }

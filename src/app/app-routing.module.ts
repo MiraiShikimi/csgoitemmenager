@@ -7,7 +7,7 @@ import { ItemscontrollComponent } from './itemscontroll/itemscontroll.component'
 import { UserItemsComponent } from './user-items/user-items.component';
 
 const routes: Routes = [
-  { path: 'sign-up', component: SignupComponent },
+  {path: 'sign-up', component: SignupComponent },
   {path: 'login', component: LoginComponent},
   {path: 'items', component: ItemscontrollComponent},
   {path: '', component: HomescreenComponent},
