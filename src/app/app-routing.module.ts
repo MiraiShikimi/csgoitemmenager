@@ -5,11 +5,12 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { HomescreenComponent } from './homescreen/homescreen.component';
 import { ItemscontrollComponent } from './itemscontroll/itemscontroll.component';
 import { UserItemsComponent } from './user-items/user-items.component';
-
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 const routes: Routes = [
   {path: 'sign-up', component: SignupComponent },
   {path: 'login', component: LoginComponent},
   {path: 'items', component: ItemscontrollComponent},
+  {path: 'profile', component: ProfilePageComponent},
   {path: '', component: HomescreenComponent},
 ];
 

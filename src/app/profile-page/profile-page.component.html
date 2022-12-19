@@ -1,0 +1,13 @@
+<body class="mainBody">
+<div class="container-xl my-container" id="mainContainer">
+<p>profile-page works!</p>
+<div><label for="Image"> Image file</label>
+    <input type="file" (change)="upload($event)" accept="*.png.jpg" id="">
+    <button (click)="uploadImage()">Upload Image</button>
+</div>
+<div class="profile-image">
+    <img src="https://firebasestorage.googleapis.com/v0/b/steam-invest-tracker.appspot.com/o/{{usersname}}?alt=media" alt="" style="max-height: 250px; width: 250px;">
+<img src="https://preview.redd.it/h58e4crdev6a1.jpg?width=640&crop=smart&auto=webp&s=d11fd96b4f15a91a5b2b188d3e5d6935181b5b07" alt="" style="float: right;">
+</div>
+</div>
+</body>

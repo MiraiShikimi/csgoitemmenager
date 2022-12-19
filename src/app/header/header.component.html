@@ -21,7 +21,7 @@
                     </span>
                         {{ theme === "light-theme" ? "Switch to dark" : "Switch to light" }}
                     </button>
-                    <button ngbDropdownItem>empty</button>
+                    <button ngbDropdownItem routerLink="/profile">Profile</button>
                     <button (click)="logout()" ngbDropdownItem>Logout</button>
                 </div>
                 <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
@@ -34,7 +34,7 @@
                 <a routerLink="/login" class="float-right login mr-2">Login</a>
 
             </div>
-            <a *ngIf="myRoles.admin" routerLink="/items" class="float-right login mr-2 manage-items">manage items</a>
+            <a *ngIf="myRoles.admin" routerLink="/login" class="float-right login mr-2 manage-items">manage items</a>
         </div>
     </nav>
 </header>

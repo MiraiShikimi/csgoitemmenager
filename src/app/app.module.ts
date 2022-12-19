@@ -25,6 +25,10 @@ import { ItemscontrollComponent } from './itemscontroll/itemscontroll.component'
 import { FilterPipe } from './pipes/filter.pipe';
 import { AddItemsFilterPipe } from './pipes/add-items-filter.pipe';
 import { ItemsControlPipe } from './pipes/items-control.pipe';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { environment } from '../environments/environment';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 
 @NgModule({
@@ -42,7 +46,8 @@ import { ItemsControlPipe } from './pipes/items-control.pipe';
     ItemscontrollComponent,
     FilterPipe,
     AddItemsFilterPipe,
-    ItemsControlPipe
+    ItemsControlPipe,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +61,9 @@ import { ItemsControlPipe } from './pipes/items-control.pipe';
     ToastrModule.forRoot(),
     NgbModule,
     FontAwesomeModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
+
     
 
     
