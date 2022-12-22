@@ -62,14 +62,12 @@ header{
     letter-spacing: .5px;
     line-height: 24px;
     text-transform: uppercase;
-    padding: 3px 16px;
     opacity: 1;
     border: 1px solid transparent;
     min-width: 125px;
 }
 
 .userdetails:hover{
-    border: 1px solid;
 }
 
 .dropdown-item{
@@ -91,12 +89,14 @@ header{
 }
 
 .account-icon{
-    max-height: 24px;
-    max-width: 24px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
 }
 
 .manage-items{
 transition: 200ms;
+
 }
 
 .manage-items:hover{

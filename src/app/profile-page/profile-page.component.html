@@ -1,13 +1,43 @@
 <body class="mainBody">
 <div class="container-xl my-container" id="mainContainer">
-<p>profile-page works!</p>
-<div><label for="Image"> Image file</label>
-    <input type="file" (change)="upload($event)" accept="*.png.jpg" id="">
-    <button (click)="uploadImage()">Upload Image</button>
+    <div style="border-left: 1px solid black; padding-left: 15px; border-radius: 1%;">
+<div class="profile-image-div">
+    <div class="title-div">
+        <p>Profile Picture</p>
+    </div>
+        <label>
+        <input type="file" (change)="upload($event)" accept="image/png, image/gif, image/jpeg" id="" style="display: none;">
+        <img class="profile-image" src="" alt="" id="profileImage">
+    </label>
+    
 </div>
-<div class="profile-image">
-    <img src="https://firebasestorage.googleapis.com/v0/b/steam-invest-tracker.appspot.com/o/{{usersname}}?alt=media" alt="" style="max-height: 250px; width: 250px;">
-<img src="https://preview.redd.it/h58e4crdev6a1.jpg?width=640&crop=smart&auto=webp&s=d11fd96b4f15a91a5b2b188d3e5d6935181b5b07" alt="" style="float: right;">
+    <div class="profile-settings-div">
+        <div class="title-div">
+            <p>Profile Settings</p>
+        </div>
+    <div class="profile-settings-components">
+    
+        <p class="call-p">Username:</p> 
+  
+        <div  class="username-div">
+            <p class="username-p">{{usersname}}</p>
+    </div>
+    </div>
+
+    <div class="profile-settings-components">
+        <div>
+        <p class="call-p">email:</p> 
+    </div>
+        <div  class="username-div">
+            <p class="username-p">{{usersname}}</p>
+    </div>
+    </div>
+
+    </div>
+
+<!-- <div >
+    <img src="https://preview.redd.it/h58e4crdev6a1.jpg?width=640&crop=smart&auto=webp&s=d11fd96b4f15a91a5b2b188d3e5d6935181b5b07" alt="">
+</div> -->
 </div>
 </div>
 </body>

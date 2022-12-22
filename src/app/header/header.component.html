@@ -9,7 +9,7 @@
             </a>
 
         </div>
-        <div class="flex-grow-1 float-right">
+        <div class="flex-grow-1 float-right" >
             <div *ngIf="isLoggedIn" ngbDropdown class="float-right">
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
                     <button ngbDropdownItem (click)="switchTheme()">
@@ -25,8 +25,7 @@
                     <button (click)="logout()" ngbDropdownItem>Logout</button>
                 </div>
                 <button class="userdetails" id="dropdownBasic1" ngbDropdownToggle>
-                    <img class="account-icon" src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXQ9QVcJY8gulRYQV_bRvCiwMbQVg8kdFAYv7iwMhdvxPbaTjVN4NOJmIGZkPK6au7TxjgA68Ek3e2VpNvx3Qzh8hZvYWulLNLDIw8-Y1vSrwDrwrq71Ij84soXoqT41g/100fx100f">
-                    {{username}}
+                    <img class="account-icon" src="{{tempImgUrl}}" alt="profile" id="HeaderProfileImage">
                 </button>
             </div>
             <div *ngIf="!isLoggedIn">
@@ -34,7 +33,9 @@
                 <a routerLink="/login" class="float-right login mr-2">Login</a>
 
             </div>
-            <a *ngIf="myRoles.admin" routerLink="/login" class="float-right login mr-2 manage-items">manage items</a>
+            <div>
+            <a *ngIf="isLoggedIn && myRoles.admin" routerLink="/items" class=" float-right login mr-2 manage-items">manage items</a>
+        </div>
         </div>
     </nav>
 </header>

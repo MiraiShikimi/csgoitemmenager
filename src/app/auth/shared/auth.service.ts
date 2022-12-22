@@ -38,6 +38,7 @@ export class AuthService {
       this.localStorage.store('authenticationToken', data.authenticationToken);
       this.localStorage.store('username', data.username);
       this.localStorage.store('refreshToken', data.refreshToken);
+      this.localStorage.store('pictureUrl', data.pictureUrl);
      
       return true;
     }));
@@ -50,6 +51,9 @@ export class AuthService {
     this.localStorage.clear('username');
     this.localStorage.clear('refreshToken');
     this.localStorage.clear('roles');
+    this.localStorage.clear('pictureurl');
+
+
   }
 
   getJwtToken(){
@@ -79,9 +83,6 @@ export class AuthService {
         }
       }) ,
         tap(response => {
-        console.log(response.authenticationToken)
-        console.log(response)
-        console.log("it should have logged")
         this.localStorage.store('authenticationToken', response.authenticationToken);
       }))
 

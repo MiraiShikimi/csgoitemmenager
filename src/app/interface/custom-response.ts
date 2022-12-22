@@ -9,5 +9,9 @@ export interface CustomResponse {
     reason: string;
     message: string;
     developerMessage: string;
-    data: { csgoItems?: csgoItem[], csgoItem?: csgoItem, userItems?: userItem[], userItem?: userItem, response?: string, userInventoryValue?: userInventoryValues,  userInventoryValues?: userInventoryValues[]};
+    data: { csgoItems?: csgoItem[], csgoItem?: csgoItem,
+            userItems?: userItem[], userItem?: userItem,
+            response?: string, 
+            userInventoryValue?: userInventoryValues, userInventoryValues?: userInventoryValues[]
+        };
 }

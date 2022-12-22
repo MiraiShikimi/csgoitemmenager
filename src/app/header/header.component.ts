@@ -22,7 +22,11 @@ export class HeaderComponent implements OnInit {
   faUser = faUser;
   isLoggedIn: boolean;
   username: string;
+  imageUrl: string;
   public myRoles: MyRoles;
+ profileImage : HTMLImageElement;
+ tempImgUrl: string;
+
 
   constructor(private authService: AuthService,
      private router: Router,
@@ -45,8 +49,8 @@ export class HeaderComponent implements OnInit {
     }
     this.isLoggedIn = this.authService.isLoggedIn();
     this.username = this.authService.getUserName();
-
-    this.initializeTheme();
+     this.imageUrl = this.localStorage.retrieve('pictureurl');
+     this.initializeTheme();
 
 
     this.localStorage.retrieve('roles').forEach(role => 
@@ -63,6 +67,16 @@ export class HeaderComponent implements OnInit {
           }
       }
       )
+      this.tempImgUrl = "https://firebasestorage.googleapis.com/v0/b/steam-invest-tracker.appspot.com/o/" + this.imageUrl + "?alt=media";
+       
+
+      this.profileImage = document.getElementById('HeaderProfileImage') as HTMLImageElement;
+     
+      console.log("THE ICON ELEM IS THIS THING RIGHT HERE" + this.profileImage)
+      if (this.profileImage){
+        this.profileImage.src = "https://firebasestorage.googleapis.com/v0/b/steam-invest-tracker.appspot.com/o/" + this.imageUrl + "?alt=media";
+        console.log("this")
+      }
     
  
   }
@@ -82,7 +96,6 @@ export class HeaderComponent implements OnInit {
     this.authService.logout();
     this.isLoggedIn = false;
     this.router.navigateByUrl('');
-    window.location.reload()
   }
 
 }

@@ -1,4 +1,54 @@
-.profile-imange{
+.profile-image-div{
+    margin-top: 25px;
+    font-size: 30px;
+    color: var(--text-color);
+}
+
+.profile-image{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile-settings-div{
+    margin-top: 50px;
+    color: var(--text-color);
+}
+
+.profile-settings-components{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 10px;
+    height: 100px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+
+}
+
+.username-div{
+    height: 30px;
+    width: 500px;
+    
+        
+}
+
+.username-p{
+    background-color: var(--border-color);
+    border-radius: 5px;
+    padding: 5px;
+    
+
+}
+
+.call-p{
+    margin: 0;
+    padding-right: 50px;
+    width: 200px;
+}
+
+.title-div{
+    padding-left: 10px;
+    font-size: 30px;
 }
