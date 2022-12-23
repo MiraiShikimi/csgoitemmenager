@@ -47,11 +47,10 @@ export class HomescreenComponent implements OnInit {
     this.getCSGOItems();
     this.localStorage.retrieve('roles').forEach(role => 
       {
-        console.log(role)
+       
         switch(role){
           case "ROLE_USER":
            this.myRoles.user = true;
-           console.log(this.myRoles.user)
             break;
           case "ROLE_ADMIN":
             this.myRoles.admin=true;
@@ -66,7 +65,6 @@ export class HomescreenComponent implements OnInit {
   public getCSGOItems(): void {
     this.csogoItemService.getCSGOItems().subscribe(
       (response: CustomResponse) => {
-        console.log(response.data.csgoItems)
         this.csgoItems = response.data.csgoItems;
         
       },
@@ -113,7 +111,7 @@ export class HomescreenComponent implements OnInit {
     document.getElementById('closeModal').click();
     this.csogoItemService.addCSGOItems(addForm.value).subscribe (
       (response: CustomResponse) => {
-        console.log(response);
+     
         this.getCSGOItems();
         addForm.reset();
       },
@@ -126,10 +124,9 @@ export class HomescreenComponent implements OnInit {
   }
 
   public onRefreshPrices(): void{
-    console.log("refreshing")
+  
     this.csogoItemService.refreshAllCSGOItems(null).subscribe (
       (response: CustomResponse) => {
-        console.log(response);
         this.getCSGOItems();
   
       },
@@ -146,7 +143,6 @@ export class HomescreenComponent implements OnInit {
     document.getElementById('closeupdateModal').click();
     this.csogoItemService.updateCSGOItems(csgoItem).subscribe (
       (response: CustomResponse) => {
-        console.log(response);
         this.getCSGOItems();
       },
       (error: HttpErrorResponse) =>{
@@ -157,11 +153,11 @@ export class HomescreenComponent implements OnInit {
 
   public onAddUserItem(theUserItem: userItem, updateForm: NgForm): void{
     document.getElementById('closeUserItemAddModal').click();
-    console.log("this here ")
+
     theUserItem.csgoItem = this.updatingCSGOItem;
     this.userItemService.addCSGOItems(theUserItem).subscribe (
       (response: CustomResponse) => {
-        console.log(response);
+
         //location.reload();
       },
       (error: HttpErrorResponse) =>{

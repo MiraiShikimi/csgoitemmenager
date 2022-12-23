@@ -53,11 +53,10 @@ export class ItemscontrollComponent implements OnInit {
     this.getCSGOItems();
     this.localStorage.retrieve('roles').forEach(role => 
       {
-        console.log(role)
+       
         switch(role){
           case "ROLE_USER":
            this.myRoles.user = true;
-           console.log(this.myRoles.user)
             break;
           case "ROLE_ADMIN":
             this.myRoles.admin=true;
@@ -72,7 +71,7 @@ export class ItemscontrollComponent implements OnInit {
   public getCSGOItems(): void {
     this.csogoItemService.getCSGOItems().subscribe(
       (response: CustomResponse) => {
-        console.log(response.data.csgoItems)
+      
         this.csgoItems = response.data.csgoItems;
         
       },
@@ -87,7 +86,7 @@ export class ItemscontrollComponent implements OnInit {
     document.getElementById('closeModal').click();
     this.csogoItemService.addCSGOItems(addForm.value).subscribe (
       (response: CustomResponse) => {
-        console.log(response);
+     
         this.getCSGOItems();
         addForm.reset();
       },
@@ -101,10 +100,10 @@ export class ItemscontrollComponent implements OnInit {
 
 
   public onRefreshPrices(): void{
-    console.log("refreshing")
+  
     this.csogoItemService.refreshAllCSGOItems(null).subscribe (
       (response: CustomResponse) => {
-        console.log(response);
+    
         this.getCSGOItems();
   
       },
@@ -122,7 +121,7 @@ export class ItemscontrollComponent implements OnInit {
     document.getElementById('closeupdateModal').click();
     this.csogoItemService.updateCSGOItems(csgoItem).subscribe (
       (response: CustomResponse) => {
-        console.log(response);
+     
         this.getCSGOItems();
       },
       (error: HttpErrorResponse) =>{
@@ -133,7 +132,7 @@ export class ItemscontrollComponent implements OnInit {
 
   public onDeleteCSGOItem(): void{
     document.getElementById('closeCSGOItemDeleteModal').click();
-     console.log("Deleting user Item")
+   
      this.csogoItemService.deleteCSGOItems(this.updatingCSGOItem.id).subscribe (
        (response: CustomResponse) => {
          console.log(response);

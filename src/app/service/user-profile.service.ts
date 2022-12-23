@@ -15,7 +15,7 @@ export class UserProfileService {
   constructor(private http: HttpClient, public authService: AuthService) { }
 
   updateProfilePictureUrl(url: string): Observable<any>{
-    console.log("happen")
+    
     return this.http.get(`${this.apiServerUrl}/profilePicture/${url}`)
    }
 

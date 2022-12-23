@@ -108,7 +108,6 @@ export class UserItemsComponent implements OnInit {
       button.setAttribute('data-target','#addUserItemModal');
     }
     if(mode === 'editItem'){
-      console.log("yes")
       this.updatingUserItem = <userItem> userItem;
       button.setAttribute('data-target','#updateUserItemModal');
     }
@@ -130,7 +129,6 @@ export class UserItemsComponent implements OnInit {
     console.log(userItem);
     this.userItemService.updateCSGOItems(userItem).subscribe(
       (response: CustomResponse) => {
-        console.log("user item edit response")
         console.log(response);
         updateForm.reset();
         this.getCSGOItems();
@@ -143,7 +141,7 @@ export class UserItemsComponent implements OnInit {
 
   public onAddUserItem(theUserItem: userItem, addUserItemForm: NgForm): void{
     document.getElementById('closeUserItemAddModal').click();
-    console.log("this here ")
+   
     theUserItem.csgoItem = this.updatingCSGOItem;
     this.userItemService.addCSGOItems(theUserItem).subscribe (
       (response: CustomResponse) => {

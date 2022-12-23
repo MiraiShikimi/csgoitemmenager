@@ -1,8 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
 import { AuthService } from './auth/shared/auth.service';
+import { HeaderComponent } from './header/header.component';
 import { csgoItem } from './interface/csgoItem';
 import { CustomResponse } from './interface/custom-response';
 import { MyRoles } from './interface/roles';
@@ -15,9 +16,17 @@ import { UseritemService } from './service/useritem.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  
 })
 export class AppComponent implements OnInit{
+onActivate(componentReference) {
+  componentReference.outputUrl.subscribe((data) => {
+    this.updatePicture(data);
+ })
+}
+  @ViewChild(HeaderComponent)  headerComponent : HeaderComponent
+
   title: string = 'investementApp' 
   public csgoItems: csgoItem[];
   public updatingCSGOItem: csgoItem;
@@ -25,6 +34,7 @@ export class AppComponent implements OnInit{
   public theUserItem: userItem;
   public myRoles: MyRoles;
   public isLoggedIn: boolean;
+
  
 
   constructor(private csogoItemService: CsgoitemService, 
@@ -41,16 +51,18 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit(): void {
+
+    
+
     this.isLoggedIn = this.authService.isLoggedIn();
     if(this.isLoggedIn){
     this.getCSGOItems();
     this.localStorage.retrieve('roles').forEach(role => 
       {
-        console.log(role)
+        
         switch(role){
           case "ROLE_USER":
            this.myRoles.user = true;
-           console.log(this.myRoles.user)
             break;
           case "ROLE_ADMIN":
             this.myRoles.admin=true;
@@ -60,12 +72,17 @@ export class AppComponent implements OnInit{
       )
     }
 
+
+  }
+
+
+  public updatePicture(url): void{
+    this.headerComponent.updatePictureUrl(url);
   }
 
   public getCSGOItems(): void {
     this.csogoItemService.getCSGOItems().subscribe(
       (response: CustomResponse) => {
-        console.log(response.data.csgoItems)
         this.csgoItems = response.data.csgoItems;
         
       },
@@ -112,7 +129,6 @@ export class AppComponent implements OnInit{
     document.getElementById('closeModal').click();
     this.csogoItemService.addCSGOItems(addForm.value).subscribe (
       (response: CustomResponse) => {
-        console.log(response);
         this.getCSGOItems();
         addForm.reset;
       },
@@ -126,10 +142,9 @@ export class AppComponent implements OnInit{
   }
 
   public onRefreshPrices(): void{
-    console.log("refreshing")
+   
     this.csogoItemService.refreshAllCSGOItems(null).subscribe (
       (response: CustomResponse) => {
-        console.log(response);
         this.getCSGOItems();
   
       },
@@ -146,7 +161,7 @@ export class AppComponent implements OnInit{
     document.getElementById('closeupdateModal').click();
     this.csogoItemService.updateCSGOItems(csgoItem).subscribe (
       (response: CustomResponse) => {
-        console.log(response);
+        
         this.getCSGOItems();
       },
       (error: HttpErrorResponse) =>{
@@ -157,11 +172,11 @@ export class AppComponent implements OnInit{
 
   public onAddUserItem(theUserItem: userItem, updateForm: NgForm): void{
     document.getElementById('closeUserItemAddModal').click();
-    console.log("this here ")
+   
     theUserItem.csgoItem = this.updatingCSGOItem;
     this.userItemService.addCSGOItems(theUserItem).subscribe (
       (response: CustomResponse) => {
-        console.log(response);
+      
         //location.reload();
       },
       (error: HttpErrorResponse) =>{

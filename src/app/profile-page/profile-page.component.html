@@ -7,7 +7,7 @@
     </div>
         <label>
         <input type="file" (change)="upload($event)" accept="image/png, image/gif, image/jpeg" id="" style="display: none;">
-        <img class="profile-image" src="" alt="" id="profileImage">
+        <img class="profile-image" [src]="imageSrc" [alt]="" id="profileImage">
     </label>
     
 </div>

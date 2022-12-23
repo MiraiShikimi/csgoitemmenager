@@ -46,7 +46,6 @@ export class AuthService {
   }
 
   logout() {
-    console.log("logging out")
     this.localStorage.clear('authenticationToken');
     this.localStorage.clear('username');
     this.localStorage.clear('refreshToken');
@@ -65,7 +64,6 @@ export class AuthService {
     const headers= new HttpHeaders().set('Authorization', this.getRefreshToken());
     return this.httpClient.post<LoginResponse>( this.apiServerUrl + '/refresh/token',this.refreshTokenPayload,{'headers': headers})
       .pipe(catchError(error => {
-        console.log("okok")
         if (error instanceof HttpErrorResponse
           && error.status === 403)
         {

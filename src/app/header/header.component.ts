@@ -8,6 +8,7 @@ import { faSun } from '@fortawesome/free-solid-svg-icons';
 import { DOCUMENT } from '@angular/common';
 import { LocalStorageService } from 'ngx-webstorage';
 import { MyRoles } from '../interface/roles';
+import { url } from 'inspector';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,9 @@ import { MyRoles } from '../interface/roles';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  
+
+
   theme: Theme = 'light-theme';
 
   faMoon = faMoon;
@@ -55,11 +59,10 @@ export class HeaderComponent implements OnInit {
 
     this.localStorage.retrieve('roles').forEach(role => 
       {
-        console.log(role)
+       
         switch(role){
           case "ROLE_USER":
            this.myRoles.user = true;
-           console.log(this.myRoles.user)
             break;
           case "ROLE_ADMIN":
             this.myRoles.admin=true;
@@ -72,14 +75,22 @@ export class HeaderComponent implements OnInit {
 
       this.profileImage = document.getElementById('HeaderProfileImage') as HTMLImageElement;
      
-      console.log("THE ICON ELEM IS THIS THING RIGHT HERE" + this.profileImage)
+      
       if (this.profileImage){
         this.profileImage.src = "https://firebasestorage.googleapis.com/v0/b/steam-invest-tracker.appspot.com/o/" + this.imageUrl + "?alt=media";
-        console.log("this")
+       
       }
     
  
   }
+
+
+
+  updatePictureUrl(url) {
+    this.tempImgUrl = "https://firebasestorage.googleapis.com/v0/b/steam-invest-tracker.appspot.com/o/" + url + "?alt=media&t=" + Date.now();
+  }
+
+
 
   initializeTheme = (): void =>  this.renderer.addClass(this.document.body, this.theme);
   switchTheme() {

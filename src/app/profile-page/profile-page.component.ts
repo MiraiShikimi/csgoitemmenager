@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,EventEmitter, OnInit, Output } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { finalize } from 'rxjs/operators';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../auth/shared/auth.service';
 import { UserProfileService } from '../service/user-profile.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile-page',
@@ -14,6 +15,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ProfilePageComponent implements OnInit {
 
+  @Output()
+  outputUrl = new EventEmitter();
+
   path : string = "";
   file : any;
   usersname :string;
@@ -21,6 +25,9 @@ export class ProfilePageComponent implements OnInit {
   downloadURL: Observable<string>;
   profileImage : HTMLImageElement;
   fr = new FileReader();
+  imageSrc: string;
+
+
 
   constructor(private storage: AngularFireStorage,
     private localStorage: LocalStorageService,
@@ -30,8 +37,10 @@ export class ProfilePageComponent implements OnInit {
     this.imageUrl = this.localStorage.retrieve('pictureurl');
     this.profileImage = document.getElementById('profileImage') as HTMLImageElement;
 
-    this.profileImage.src = "https://firebasestorage.googleapis.com/v0/b/steam-invest-tracker.appspot.com/o/" 
-                              + this.imageUrl + "?alt=media&t=23";
+    this.imageSrc = "https://firebasestorage.googleapis.com/v0/b/steam-invest-tracker.appspot.com/o/" 
+                              + this.imageUrl + "?alt=media&t=" + Date.now();
+
+    
 
   }
 
@@ -55,9 +64,10 @@ export class ProfilePageComponent implements OnInit {
   .subscribe(
     data  => {
       if (data.state === "success"){
-        console.log(data.state);
+      console.log(data.state);
        this.localStorage.store('pictureUrl', filePath);
        this.imageUrl = filePath;
+       this.outputUrl.emit(filePath);
        this.userProfileService.updateProfilePictureUrl(this.usersname).subscribe(
         data => {
           console.log(data)
@@ -73,7 +83,7 @@ export class ProfilePageComponent implements OnInit {
 }
   }
   updateImage(element: HTMLImageElement){
-    element.src = "https://firebasestorage.googleapis.com/v0/b/steam-invest-tracker.appspot.com/o/"
+    this.imageSrc = "https://firebasestorage.googleapis.com/v0/b/steam-invest-tracker.appspot.com/o/"
                        + this.imageUrl + "?alt=media&t=" + Date.now();
   }
 
