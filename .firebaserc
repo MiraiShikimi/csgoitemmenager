@@ -3,12 +3,6 @@
     "default": "steam-invest-tracker"
   },
   "targets": {
-    "steam-invest-tracker": {
-      "hosting": {
-        "investmentapp": [
-          "steam-invest-tracker"
-        ]
-      }
-    }
-  }
+  },
+  "etags": {}
 }

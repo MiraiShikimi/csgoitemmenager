@@ -15,42 +15,68 @@ import 'chartjs-adapter-date-fns';
 export class UserInventoryValuesComponent implements OnInit {
 
   public userInventory: userInventoryValues[];
+  public values = [];
+  public values2 = [];
+  public dates = [];
+  public myChart;
+  public monthlyChartScale = false;
 
   constructor(private userInventoryValueService: UserInventoryValueServiceService, private localStorage: LocalStorageService) {
     Chart.register(...registerables);
    }
 
   ngOnInit(): void {
-  
-    
-    
     this.getUserInventoryValue();
-
+  }
+  
+  public updateDateScale(): void {
+    if(this.monthlyChartScale){
+      this.setTotal();
+    }
+    else {
+      this.setMonthly();
+    }
   }
 
+  public setMonthly(): void 
+  {
+    this.values.splice(0, this.values.length - 90);
+    this.values2.splice(0, this.values2.length - 90);
+    this.dates.splice(0, this.dates.length - 90);
+    this.monthlyChartScale = true;
+    this.myChart.update();
+  }
 
-   public  chartSerup(): void{
-    const values = [];
-    const values2 = [];
-    const dates = [];
-    this.userInventory.forEach(element => {
-        values.push(element.inventoryValue)
-        
-          values2.push(element.inventoryValueTaxed)
-        
-        
-        
-        dates.push(element.dateOfValue)
-      
+  public setTotal(): void {
+    this.values.splice(0,this.values.length)
+    this.values2.splice(0,this.values2.length)
+    this.dates.splice(0,this.dates.length)
+    this.userInventory.forEach(element => 
+      {
+        this.values.push(element.inventoryValue);
+        this.values2.push(element.inventoryValueTaxed);
+        this.dates.push(element.dateOfValue);
+      });
+      this.monthlyChartScale = false;
+      this.myChart.update();
+  }
+
+  public  chartSerup(): void{
+    this.userInventory.forEach(element => 
+    {
+      this.values.push(element.inventoryValue)        
+      this.values2.push(element.inventoryValueTaxed)
+      this.dates.push(element.dateOfValue)
+
     });
-    console.log(values2)
-    const myChart = new Chart("myChart", {
+
+    this.myChart = new Chart("myChart", {
       type: 'line',
       data: {
-          labels: dates,
+          labels: this.dates,
           datasets: [{
             label: 'inventory values taxed',
-            data: values2,
+            data: this.values2,
             backgroundColor: ['rgba( 3, 115, 252, 1)'],
             borderColor: ['rgba( 3, 115, 252, 1)'],
             borderWidth: 2,
@@ -61,7 +87,7 @@ export class UserInventoryValuesComponent implements OnInit {
             
         },{
           label: 'inventory values',
-          data: values,
+          data: this.values,
           backgroundColor: [ 'rgba( 11, 168, 0, 1)'
           ],
           borderColor: [
@@ -89,7 +115,7 @@ export class UserInventoryValuesComponent implements OnInit {
               }
           }
       }
-  });
+    });
   }
 
   public getUserInventoryValue(): void {

@@ -16,8 +16,8 @@ export const environment = {
 
 
   production: false,
-   baseUrl: 'http://localhost:8080/'
-  //baseUrl: 'https://csgoitemmenager-production.up.railway.app/'
+  // baseUrl: 'http://localhost:8080/'
+  baseUrl: 'https://csgoitemmenager-production.up.railway.app/'
 };
 
 /*

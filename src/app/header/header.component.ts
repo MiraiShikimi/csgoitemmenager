@@ -106,7 +106,8 @@ export class HeaderComponent implements OnInit {
   logout(){
     this.authService.logout();
     this.isLoggedIn = false;
-    this.router.navigateByUrl('');
+    window.location.href = "https://steam-invest-tracker.web.app/login";
+    //this.router.navigateByUrl('/login');
   }
 
 }

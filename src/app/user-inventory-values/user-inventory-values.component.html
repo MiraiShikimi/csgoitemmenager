@@ -3,10 +3,13 @@
 </head>
 
 <div class="container-xl">
-
+    <button type="button" (click)="updateDateScale()" id="setMonthly"
+    class="btn btn-primary conrol-buttons">
+    <span *ngIf="monthlyChartScale">Total</span> 
+    <span *ngIf="!monthlyChartScale">Monthly</span> 
+    </button>
     <div id="divChart">
         <canvas id="myChart">
-
         </canvas>
     </div>
 </div>
